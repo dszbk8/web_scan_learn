@@ -1,0 +1,29 @@
+
+
+信息系统：
+信息系统自身拥有的特征，都可以称作是信息系统的指纹。
+对于网站，指纹包括什么？
+网站的指纹，能很好的描述这个网站是一个什么样的网站，能回答我们"Who U are"
+网站指纹包含内容：
+Web容器:Apache/IS/Nginx
+Web语言:PHP/JAVA/.Net
+Web开发框架:Django/ThinkPHP
+Web应用:PHPCMS
+
+
+指纹识别的意义：
+1、信息搜集：
+指纹信息可能帮助我们了解目标网站呢的开发与搭载程序，充分了解目标网站。
+2、精准测试：
+当我们确定目标网站的指纹后，就能精准了进行测试。
+如： php的程序，就不需要测试Struts2漏洞；特定的cms都自有一些特定的漏洞。
+
+
+指纹识别的方法：
+1、针对Web环境信息
+使用python第三方库： builtwith.
+
+2、针对CMS信息识别
+特定cms独有url的MD5值
+3n:http://www.phpcms.cn/statics/images/admin_img/arrowhead-y.png
+MD5: 6c34f70bd2a05c8c5ddebb369b5b9509

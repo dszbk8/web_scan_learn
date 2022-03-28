@@ -1,0 +1,78 @@
+
+
+【子域名搜集方法】
+01暴力猜解
+最简单的一种方法，对于Web子域名来说，猜测一些可能的子域名，然后浏览器访问下看是否存在.
+
+02搜索引擎查询
+百度、谷歌、必应等.比如site:163.com
+
+03页面爬取
+可以利用爬虫从页面源代码中提取子域名， BurpSuite就可以实现.
+
+04第三方查询
+通过在第三方网站或接口进行查询.
+如: http://subdomain.chaxun.la/.
+站长帮手：http：//i.links.cn/subdomain/
+
+
+05 crossdomain.xml文件
+通过查看网站的crossdomain.xml文件，来收集子城名信息.
+如: http://www.163.com/crossdomain.xml
+
+06通过HTTPS证书搜集
+通过查看HTTPS证书的信息，也有在线查询地址，如：https://censys.io/
+
+
+【程序设计】
+子域名信息搜集的方法有很多，我们选取其中的几类，作为程序需要实现的方向。
+
+程序输入
+
+暴力破解+第三方查询+ https证书查询
+
+子域名字典爆破：
+test.com
+demo.test.com
+admin.test.com
+bbs.test.com
+…
+
+第三方网站查询：
+test.com
+请求对应的地址
+分析返回内容
+抓取所需数据
+保存
+
+查询API接口：
+test.com
+按接口发起请求
+接受返回数据
+分析返回结构
+保存
+
+【程序模块设计】
+主程序：
+    utils
+        CRT/ilink/brute
+        _cache(当前目录下的result目录下的domain命名的目录)
+        _cache1(crt)   _cache2(ilink)  _cache3(brute)
+    common.py
+        用到相同的方法：
+            1.request；
+            2.判断是不是重复或者是不是域名；
+            3.生成临时文件；
+            4.处理临时文件；
+
+            结果输出
+    config.py
+        定义一个全局配置文件，方便后期配置的修改。
+        1.设置访问超时时间
+        2.设置随机的header头
+
+
+
+
+
+
